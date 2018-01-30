@@ -10,8 +10,8 @@ class MergeSort:
         if n < 2:
             return array
         mid = n/2
-        left <- self.divide_array(0, mid)
-        right <- self.divide_array(mid+1, n)
+        left <- self.divide_array(array, 0, mid)
+        right <- self.divide_array(array, mid+1, n)
         self.algorithm(left)
         self.algorithm(right)
         self.merge(left, right, array)
@@ -41,7 +41,7 @@ class MergeSort:
             j = j + 1
             k = k + 1
 
-    def divide_array(array, start, end):
+    def divide_array(self, array, start, end):
         half = []
         i = 0
         for j in range(start, end):
