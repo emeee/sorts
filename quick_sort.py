@@ -7,16 +7,16 @@ class QuickSort:
         if start < end:
             pIndex = self.partition(array, start, end)
             self.algorithm(array, start, pIndex-1)
-            self.algorithm(array, start, pIndex+1)
+            self.algorithm(array, pIndex+1, end)
         return array
 
     def partition(self, array, start, end):
         pivot = array[end]
         pIndex = start
-        for i in range(start, end-1):
+        for i in range(start, end):
             if array[i] <= pivot:
                 self.swap(array, i, pIndex)
-                pIndex += 1
+                pIndex = pIndex + 1
         self.swap(array, pIndex, end)
         return pIndex
 
@@ -26,4 +26,4 @@ class QuickSort:
         array[i] = tmp
 
 sorter = QuickSort()
-print sorter.sort([1,2,4,3])
+print sorter.sort([1,2,4,3,9,5])
